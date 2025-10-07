@@ -1,0 +1,214 @@
+[
+    {
+        "id": 1,
+        "name": "AYII SIJIN",
+        "type": "Leadership",
+        "position": "President",
+        "major": "Chemical Engineering, 5th Year",
+        "graduationYear": "2026",
+        "imgSrc": "images/555.jpg"
+    },
+    {
+        "id": 2,
+        "name": "IDER MAKUEI",
+        "type": "Leadership",
+        "position": "Vice President",
+        "major": "Bio-medical Engineering, 3rd Year",
+        "graduationYear": "2027",
+        "imgSrc": "images/ID.jpg"
+    },
+    {
+        "id": 3,
+        "name": "MABIOR MADUOT",
+        "type": "Leadership",
+        "position": "Secretary General",
+        "major": "Agric-Business, 3rd Year",
+        "graduationYear": "2027",
+        "imgSrc": "images/mabr.jpg"
+    },
+    {
+        "id": 4,
+        "name": "MARY CLEMENT",
+        "type": "Leadership",
+        "position": "Treasurer",
+        "major": "Agriculture, 4th Year",
+        "graduationYear": "2026",
+        "imgSrc": "images/mar.jpg"
+    },
+    {
+        "id": 5,
+        "name": "RUTH AYAA",
+        "type": "Leadership",
+        "position": "Tr",
+        "major": "Natural R. Management, 1st Year",
+        "graduationYear": "2028",
+        "imgSrc": "images/RU.jpg"
+    },
+    {
+        "id": 6,
+        "name": "JAMES AGOTH",
+        "type": "Leadership",
+        "position": "Dupt. Sport Master",
+        "major": "Civil Engineering, 3rd Year",
+        "graduationYear": "2029",
+        "imgSrc": "images/AG.jpg"
+    },
+    {
+        "id": 7,
+        "name": "SANTINO LUAL",
+        "type": "Leadership",
+        "position": "Sport Master",
+        "major": "Economics, 3rd Year",
+        "graduationYear": "2027",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=AM"
+    },
+    {
+        "id": 8,
+        "name": "NYAGAK SISCO",
+        "type": "Leadership",
+        "position": "Secretary for external Affairs",
+        "major": "Agriculture, 3rd Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=JD"
+    },
+    {
+        "id": 9,
+        "name": "ABIAR",
+        "type": "Undergraduate",
+        "major": "Software Engineering, 4th Year",
+        "graduationYear": "2028",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=EY"
+    },
+    {
+        "id": 10,
+        "name": "MAJOK DENG",
+        "type": "Undergraduate",
+        "major": "Civil Engineering, 3rd Year",
+        "graduationYear": "2027",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 11,
+        "name": "AJANG GARANG",
+        "type": "Undergraduate",
+        "major": "Civil Engineering, 2nd Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=AK"
+    },
+    {
+        "id": 12,
+        "name": "Eng. DENG MARIAL",
+        "type": "Alumni",
+        "major": "Graduated in Chemical Engineering, 2024",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=EW"
+    },
+    {
+        "id": 13,
+        "name": "DENG KUCH",
+        "type": "Alumni",
+        "major": "Graduated in Agriculture, 2024",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=SN"
+    },
+    {
+        "id": 14,
+        "name": "NYOK MIAKOL",
+        "type": "Undergraduate",
+        "major": "Agriculture, 3rd Year",
+        "graduationYear": "2027",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=JA"
+    },
+    {
+        "id": 15,
+        "name": "AYUP MAJOK",
+        "type": "Undergraduate",
+        "major": "Civil Engineering, 1st Year",
+        "graduationYear": "2031",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=RC"
+    },
+    {
+        "id": 16,
+        "name": "KENEDY",
+        "type": "Undergraduate",
+        "major": "Agriculture, 1st Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=KK"
+    },
+     {
+        "id": 17,
+        "name": "Dr. MAWUT AWAN",
+        "type": "Alumni",
+        "major": "Graduated in pharmacy, 2024",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=AA"
+    },
+    {
+        "id": 18,
+        "name": "KON DENG",
+        "type": "Alumni",
+        "major": "Graduated in Economic, 2024",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    },
+    {
+         "id": 19,
+        "name": "BUOMKUOTH JOHN",
+        "type": "Undergraduate",
+        "major": "Computer Science, 4th Year",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    },
+    {
+         "id": 20,
+        "name": "JAMES WUOR",
+        "type": "Undergraduate",
+        "major": "Computer Science, 4th Year",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    },
+    {
+         "id": 21,
+        "name": "NYAMAL CHUOL",
+        "type": "Undergraduate",
+        "major": "Computer Science, 3rd Year",
+        "graduationYear": "2028",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    },
+    {
+        "id": 22,
+        "name": "ABIAR",
+        "type": "Leadership",
+        "position": "Assistance Finance",
+        "major": "Software Engineering, 4th Year",
+        "graduationYear": "2028",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=EY"
+    },
+    {
+        "id": 23,
+        "name": "DENG ",
+        "type": "Undergraduate",
+        "major": "Software Engineering, 1st Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=EY"
+    },
+    {
+         "id": 24,
+        "name": "MONYJONG TONG",
+        "type": "Undergraduate",
+        "major": "Social science, 1st Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    },
+    {
+         "id": 25,
+        "name": "LUETH AWAN",
+        "type": "Undergraduate",
+        "major": "Civil Engineering, 1st Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    },
+    {
+         "id": 26,
+        "name": "LUETH ",
+        "type": "Undergraduate",
+        "major": "Civil Engineering, 1st Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+    }
+    
+]

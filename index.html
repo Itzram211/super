@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>South Sudan Student U-JU | Jimma University, Ethiopia</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles and color palette */
+        :root {
+            --primary-blue: #0A3D62; 
+            --secondary-gold: #FBC531; 
+            --light-bg: #F8F9FA;
+        }
+        
+        /* Tailwind configuration replacement classes */
+        .header-bg { background-color: var(--primary-blue); color: white; }
+        .text-gold { color: var(--secondary-gold); }
+        .bg-gold { background-color: var(--secondary-gold); }
+        .bg-gold-light { background-color: #fde68a; } /* A lighter shade for hover etc */
+        .text-primary-blue { color: var(--primary-blue); }
+        .bg-primary-blue { background-color: var(--primary-blue); }
+        .border-gold { border-color: var(--secondary-gold); }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--primary-blue);
+            /* Changed body background for a modern look */
+            background-color: #F0F5F9; 
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Custom underline animation for nav links */
+        .nav-link-button {
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .nav-link-button::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--secondary-gold);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+        .nav-link-button:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* General card styling for a consistent look */
+        .card {
+            border-radius: 1rem; /* 16px */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Smooth transition for dropdowns */
+        .dropdown-transition {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .dropdown-hidden {
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+        }
+        .dropdown-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Hero section background pattern */
+        .hero-section {
+            background-color: #ffffff;
+            background-image: radial-gradient(var(--primary-blue) 0.5px, transparent 0.5px);
+            background-size: 15px 15px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Bar -->
+    <nav class="header-bg shadow-lg sticky top-0 z-50 bg-opacity-95 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo/Title -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="flex items-center space-x-2">
+                        <!-- LOGO IMAGE GOES HERE: Replace the div below with your <img> tag -->
+                        <!-- Example: <img class="h-10 w-10" src="your-logo.svg" alt="SSS U-JU Logo"> -->
+                        <img class="rounded-full shadow-lg h-10 w-10 bg-gold flex items-center justify-center" src="images/logo.jpg" alt="SSS U-JU Logo">
+                        <div class="flex flex-col leading-none">
+                            <span class="text-3xl font-extrabold text-gold tracking-wider">SSS U-JU</span>
+                            <span class="text-white text-xs block -mt-1 font-medium">Jimma University</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-4 lg:space-x-8 items-center">
+                    <a href="#about" class="nav-link-button text-sm px-1 py-2 text-white hover:text-gold">About Us</a>
+                    
+                    <!-- Community Dropdown -->
+                    <div class="relative" id="community-dropdown">
+                        <button class="nav-link-button text-sm px-1 py-2 text-white hover:text-gold flex items-center" onclick="toggleCommunityDropdown()">
+                            Community
+                            <svg id="dropdown-icon" class="w-4 h-4 ml-2 transform transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="community-menu" class="absolute dropdown-hidden w-52 mt-2 right-0 rounded-xl shadow-2xl bg-white ring-1 ring-black ring-opacity-5 z-50 overflow-hidden dropdown-transition">
+                            <a href="#community" class="block px-4 py-3 text-sm text-primary-blue hover:bg-gold-light transition duration-150 font-bold" onclick="handleCommunityFilter(event, 'All')">All Current Students</a>
+                            <a href="#community" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition duration-150" onclick="handleCommunityFilter(event, 'Graduate')">Graduating Class</a>
+                            <a href="#community" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition duration-150" onclick="handleCommunityFilter(event, 'Undergraduate')">Undergraduates</a>
+                            <a href="#community" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition duration-150" onclick="handleCommunityFilter(event, 'Postgraduate')">Postgraduates</a>
+                            <a href="#community" class="block px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 transition duration-150" onclick="handleCommunityFilter(event, 'Alumni')">Alumni Network</a>
+                            <a href="#leadership" class="block px-4 py-3 text-sm text-primary-blue hover:bg-gold-light transition duration-150 font-semibold">Leadership Team</a>
+                        </div>
+                    </div>
+                    
+                    <a href="#events" class="nav-link-button text-sm px-1 py-2 text-white hover:text-gold">Events</a>
+                    <a href="#gallery" class="nav-link-button text-sm px-1 py-2 text-white hover:text-gold">Gallery</a>
+                    <a href="#contact" class="nav-link-button text-sm px-1 py-2 text-white hover:text-gold">Contact</a>
+                    
+                    <button onclick="openBankDetailsModal()" class="bg-gold text-primary-blue hover:bg-white hover:text-primary-blue px-5 py-2 rounded-full text-sm font-semibold transition duration-300 transform hover:scale-105 shadow-md ml-4">
+                        Support Us
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-white hover:text-gold focus:outline-none focus:text-gold p-2 rounded-md">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path><path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Content -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white text-primary-blue shadow-xl">
+                <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">About Us</a>
+                
+                <button id="mobile-community-btn" class="w-full text-left px-3 py-2 rounded-md text-base font-medium flex justify-between items-center hover:bg-gray-100">
+                    Community 
+                    <svg id="mobile-dropdown-icon" class="w-4 h-4 ml-1 transform transition duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-community-menu" class="hidden pl-4 pb-1 space-y-1">
+                    <a href="#community" class="mobile-nav-link block px-3 py-2 text-sm text-primary-blue hover:bg-gold-light font-bold" onclick="handleCommunityFilter(event, 'All')">All Current Students</a>
+                    <a href="#community" class="mobile-nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50" onclick="handleCommunityFilter(event, 'Graduate')">Graduating Class</a>
+                    <a href="#community" class="mobile-nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50" onclick="handleCommunityFilter(event, 'Undergraduate')">Undergraduates</a>
+                    <a href="#community" class="mobile-nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50" onclick="handleCommunityFilter(event, 'Postgraduate')">Postgraduates</a>
+                    <a href="#community" class="mobile-nav-link block px-3 py-2 text-sm text-gray-600 hover:bg-gray-50" onclick="handleCommunityFilter(event, 'Alumni')">Alumni Network</a>
+                    <a href="#leadership" class="mobile-nav-link block px-3 py-2 text-sm text-primary-blue hover:bg-gold-light font-semibold">Leadership Team</a>
+                </div>
+                
+                <a href="#events" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Events</a>
+                <a href="#gallery" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Gallery</a>
+                <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-100">Contact</a>
+                <button onclick="openBankDetailsModal();" class="mobile-nav-link block w-full text-left px-3 py-2 rounded-md text-base font-medium bg-gold text-primary-blue mt-2 text-center">Support Us</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative bg-white pt-16 pb-32 sm:pt-24 lg:pt-32 hero-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-primary-blue">
+                    <span class="block">SOUTH SUDAN STUDENT</span>
+                    <span class="block text-gold">UNION</span>
+                </h1>
+                <p class="mt-4 max-w-2xl mx-auto text-xl text-gray-600">
+                    Nurturing Tomorrow's Leaders at Jimma University, Ethiopia. Unity, Education, and Cultural Pride.
+                </p>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#community" class="bg-gold text-primary-blue hover:bg-primary-blue hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                        Join Our Community
+                    </a>
+                    <a href="#events" class="border border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-lg w-full sm:w-auto">
+                        View Upcoming Events
+                    </a>
+                </div>
+            </div>
+            <!-- S-Curve Shape Divider -->
+            <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
+                <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" class="relative block w-full h-[60px] sm:h-[120px]">
+                    <path d="M1440,89.2C1212.5,134.4,985,134.4,720,89.2S227.5-0,0,45.2V120h1440V89.2z" fill="#F0F5F9"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section id="statistics" class="py-12 md:py-16 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-extrabold text-center mb-10 text-primary-blue">Union Impact In Numbers</h2>
+                <div id="stats-list" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                    <p class="col-span-full text-center text-gray-500">Loading statistics...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us Section -->
+        <section id="about" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-blue">Our Mission & Values</h2>
+                
+                <div class="bg-white p-8 card border-t-8 border-primary-blue mb-12">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        The South Sudan Student Union (SSS U-JU) at Jimma University serves as the central hub for all South Sudanese students studying across various faculties. Our mission is to foster a strong sense of community, preserve our rich cultural heritage, and support the academic and social welfare of our members.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 card border-b-4 border-gold text-center">
+                        <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M12 10a5 5 0 110-10 5 5 0 010 10zm-2 0a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        <h3 class="text-xl font-bold text-primary-blue mb-3">Fostering Unity</h3>
+                        <p class="text-gray-600 text-sm">We unite students from different South Sudanese states and backgrounds, ensuring everyone has a supportive family away from home.</p>
+                    </div>
+
+                    <div class="bg-white p-6 card border-b-4 border-gold text-center">
+                        <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                        <h3 class="text-xl font-bold text-primary-blue mb-3">Academic Support</h3>
+                        <p class="text-gray-600 text-sm">We provide students with academic guidelines, study groups, and mentorship to help our members achieve academic success in their fields.</p>
+                    </div>
+
+                    <div class="bg-white p-6 card border-b-4 border-gold text-center">
+                        <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6H8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                        <h3 class="text-xl font-bold text-primary-blue mb-3">Cultural Preservation</h3>
+                        <p class="text-gray-600 text-sm">Through regular events, we celebrate and share the rich, diverse cultures and traditions of South Sudan.</p>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <a href="#support" class="bg-primary-blue text-white hover:bg-gold hover:text-primary-blue font-medium py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-md inline-block">
+                        See How You Can Help
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Section -->
+        <section id="community" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-blue">Our Vibrant Community</h2>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center mb-8 space-y-4 sm:space-y-0 sm:space-x-4">
+                    <label for="community-filter" class="text-lg font-medium text-primary-blue">Filter By:</label>
+                    <select id="community-filter" class="p-3 border border-gray-300 rounded-xl text-lg text-primary-blue focus:ring-primary-blue focus:border-primary-blue shadow-lg transition duration-300">
+                        <option value="All">All Current Students</option>
+                        <option value="Graduate">Graduating Class</option>
+                        <option value="Undergraduate">Undergraduate Students</option>
+                        <option value="Postgraduate">Postgraduate & PhD</option>
+                        <option value="Alumni">Alumni Network</option>
+                    </select>
+                </div>
+
+                <div id="community-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <p class="col-span-full text-center text-gray-500">Loading community members...</p>
+                </div>
+                
+                <!-- NEW: Toggle button container -->
+                <div id="community-toggle-container" class="mt-12 text-center">
+                    <!-- Button will be rendered here by JavaScript -->
+                </div>
+
+                <div id="community-detail-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-[100]">
+                    <div class="bg-white p-6 rounded-2xl w-full max-w-md card transform transition-all duration-300">
+                        <h3 id="modal-name" class="text-3xl font-extrabold text-primary-blue mb-2"></h3>
+                        <p id="modal-type" class="text-gold font-semibold mb-4"></p>
+                        <p id="modal-major" class="text-gray-700 mb-2"></p>
+                        <p id="modal-story" class="text-gray-600 text-sm italic mb-4 border-l-4 border-gold pl-3"></p>
+                        <button onclick="document.getElementById('community-detail-modal').classList.add('hidden')" class="bg-primary-blue text-white hover:bg-gold-light hover:text-primary-blue mt-4 font-medium py-2 px-6 rounded-full w-full transition duration-300">Close</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team Section -->
+        <section id="leadership" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-blue">Our Leadership Team</h2>
+                <div id="leadership-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <p class="col-span-full text-center text-gray-500">Loading leadership team...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-blue">Upcoming Events</h2>
+
+                <div id="next-event-countdown-banner" class="mb-12 hidden bg-primary-blue p-6 rounded-2xl shadow-xl border-b-8 border-gold text-white text-center">
+                    <p class="text-2xl md:text-3xl font-bold mb-4">Countdown to: <span id="countdown-event-title" class="text-gold"></span></p>
+                    <div id="countdown-timer-ui" class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <!-- Countdown boxes rendered here -->
+                    </div>
+                </div>
+                
+                <div id="event-list-container" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <p id="event-list-placeholder" class="col-span-full text-center text-lg text-gray-500">Loading event schedule...</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Gallery Section -->
+        <section id="gallery" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-blue">Gallery</h2>
+                <div id="gallery-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <p class="col-span-full text-center text-gray-500">Loading gallery...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Support Us Section -->
+        <section id="support" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="bg-primary-blue text-white card p-10">
+                    <h2 class="text-4xl font-extrabold mb-4 text-gold">Support Our Cause</h2>
+                    <p class="text-xl font-light mb-8">
+                        Your generous contribution helps us provide academic resources, cultural events, and emergency welfare support to South Sudanese students.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button onclick="openBankDetailsModal()" class="bg-gold text-primary-blue hover:bg-white px-8 py-3 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-xl">
+                            Donate Now
+                        </button>
+                        <a href="#contact" class="border-2 border-white text-white hover:bg-gold-light hover:text-primary-blue px-8 py-3 rounded-full text-lg font-semibold transition duration-300 transform hover:scale-105 shadow-xl">
+                            Become a Sponsor
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-transparent">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-extrabold text-center mb-12 text-primary-blue">Get In Touch</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white card p-6 border-t-4 border-gold">
+                        <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-2 4v7a2 2 0 01-2 2H7a2 2 0 01-2-2v-7"></path></svg>
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">General Inquiry</h3>
+                        <a href="mailto:info@sssuju.org" class="text-gray-600 hover:text-primary-blue transition duration-150 font-medium">info@sssuju.org</a>
+                    </div>
+                    
+                    <div class="bg-white card p-6 border-t-4 border-gold">
+                        <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Call/WhatsApp</h3>
+                        <p class="text-gray-600 font-medium">+251 987 654 321</p>
+                        <p class="text-sm text-gray-500">(Jimma, Ethiopia)</p>
+                    </div>
+
+                    <div class="bg-white card p-6 border-t-4 border-gold">
+                        <svg class="w-12 h-12 text-gold mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Office Location</h3>
+                        <p class="text-gray-600 font-medium">Jimma University Main Campus, Student Union Building</p>
+                        <a href="https://www.google.com/maps/place/Jimma+University" target="_blank" class="text-sm text-gold hover:underline mt-1 block">View Map</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bank Details Modal -->
+        <div id="bank-details-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-[200]">
+            <div class="bg-white p-8 rounded-2xl w-full max-w-lg card transform transition-all duration-300">
+                <h3 class="text-3xl font-extrabold text-primary-blue mb-4 text-center">Support SSS U-JU</h3>
+                <p class="text-center text-lg text-gray-700 mb-6">Please use one of the accounts below for your generous donation.</p>
+
+                <div class="space-y-6">
+                    <div class="border border-gold p-4 rounded-xl bg-gold-light bg-opacity-20">
+                        <p class="text-xl font-bold text-primary-blue mb-2 flex items-center"><svg class="w-6 h-6 mr-2 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M21 18H3V6h18v12zm-2 0V8H5v10h14zm-9-4H7v-2h4v2zm4 0h-2v-2h2v2zm-4 4h-2v-2h2v2zm4 0h-2v-2h2v2z"/></svg>Commercial Bank of Ethiopia (CBE)</p>
+                        <div class="text-sm space-y-1">
+                            <p><strong>Account Name:</strong> SSS Union - Jimma University</p>
+                            <div class="flex justify-between items-center bg-gray-100 p-2 rounded-lg">
+                                <p><strong>Account Number:</strong> <span id="acc1-number" class="font-mono text-primary-blue font-semibold">1000 1234 56789</span></p>
+                                <button onclick="copyToClipboard('acc1-number', this)" class="text-xs bg-primary-blue text-white px-3 py-1 rounded hover:bg-gold-light hover:text-primary-blue transition">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-gold p-4 rounded-xl bg-gold-light bg-opacity-20">
+                        <p class="text-xl font-bold text-primary-blue mb-2 flex items-center"><svg class="w-6 h-6 mr-2 text-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15H9v-2h2v2zm0-4H9v-2h2v2zm0-4H9V7h2v2zm4 8h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V7h2v2z"/></svg>Dashen Bank</p>
+                        <div class="text-sm space-y-1">
+                            <p><strong>Account Name:</strong> SSS Welfare Fund</p>
+                            <div class="flex justify-between items-center bg-gray-100 p-2 rounded-lg">
+                                <p><strong>Account Number:</strong> <span id="acc2-number" class="font-mono text-primary-blue font-semibold">0123 4567 89012</span></p>
+                                <button onclick="copyToClipboard('acc2-number', this)" class="text-xs bg-primary-blue text-white px-3 py-1 rounded hover:bg-gold-light hover:text-primary-blue transition">Copy</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="closeBankDetailsModal()" class="bg-primary-blue text-white hover:bg-gold-light hover:text-primary-blue mt-8 font-medium py-2 px-6 rounded-full w-full transition duration-300 transform hover:scale-105">Close Details</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="header-bg py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 border-b border-gray-700 pb-8">
+                <div class="md:col-span-2">
+                    <a href="#" class="flex items-center space-x-3 mb-4">
+                        <!-- LOGO IMAGE GOES HERE: Replace the div below with your <img> tag -->
+                        <!-- Example: <img class="rounded-full shadow-lg h-10 w-10 bg-gold flex items-center justify-center" src="your-logo.svg" alt="SSS U-JU Logo"> -->
+                        <img class="rounded-full shadow-lg h-10 w-10 bg-gold flex items-center justify-center" src="images/logo.jpg" alt="SSS U-JU Logo">
+                        <h4 class="text-2xl font-extrabold text-gold leading-tight">SSS U-JU</h4>
+                    </a>
+                    <p class="text-sm text-gray-300">"Unity in diversity, dedicated to the future of South Sudan."</p>
+                </div>
+
+                <div>
+                    <h5 class="text-lg font-semibold text-gold mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition">Our Mission</a></li>
+                        <li><a href="#community" class="text-gray-300 hover:text-white transition">Member Directory</a></li>
+                        <li><a href="#events" class="text-gray-300 hover:text-white transition">Event Calendar</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-white transition">Gallery</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition">Contact Leadership</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="text-lg font-semibold text-gold mb-4">Connect</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Facebook Page</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">Telegram Group</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition">WhatsApp Channel</a></li>
+                        <li><a href="mailto:info@sssuju.org" class="text-gray-300 hover:text-white transition">Email Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-4 border-t border-gray-800 text-center">
+                <p class="text-sm text-gray-400">&copy; 2024 South Sudan Student Union - Jimma University. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+<script>
+// --- GLOBAL CONFIGURATION AND STATE ---
+const MAX_DISPLAY_MEMBERS = 9;
+let currentFilter = 'All';
+
+// Data stores
+let statsData = [];
+let communityData = []; // All members except leadership, with dynamic types
+let eventsData = [];
+let leadershipData = [];
+let galleryData = [];
+let filteredCommunityData = []; // The currently filtered view of communityData
+
+// --- DATA FETCHING ---
+async function fetchData() {
+    try {
+        const [communityRes, eventsRes, statsRes, galleryRes] = await Promise.all([
+            fetch('community.json'),
+            fetch('events.json'),
+            fetch('stats.json'),
+            fetch('gallery.json')
+        ]);
+        
+        if (!communityRes.ok || !eventsRes.ok || !statsRes.ok || !galleryRes.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const communityJSON = await communityRes.json();
+        eventsData = await eventsRes.json();
+        statsData = await statsRes.json();
+        galleryData = await galleryRes.json();
+        
+        const currentYear = new Date().getFullYear(); 
+
+        // Separate leaders first, as their role is explicit and static
+        leadershipData = communityJSON.filter(member => member.type === 'Leadership');
+        
+        const studentsAndAlumni = communityJSON.filter(member => member.type !== 'Leadership');
+
+        // Process the remaining members to assign dynamic types based on graduation year
+        communityData = studentsAndAlumni.map(member => {
+            const dynamicMember = { ...member }; // Create a copy to avoid mutating original data
+            if (dynamicMember.graduationYear) {
+                if (dynamicMember.graduationYear < currentYear) {
+                    dynamicMember.type = 'Alumni';
+                } else if (dynamicMember.graduationYear === currentYear) {
+                    dynamicMember.type = 'Graduate';
+                }
+                // If graduationYear is in the future, their original 'Undergraduate' or 'Postgraduate' type is correct.
+            }
+            return dynamicMember;
+        });
+        
+        return true;
+    } catch (error) {
+        console.error("Failed to fetch data:", error);
+        document.getElementById('stats-list').innerHTML = `<p class="col-span-full text-center text-red-500">Failed to load statistics.</p>`;
+        document.getElementById('community-list').innerHTML = `<p class="col-span-full text-center text-red-500">Failed to load community members.</p>`;
+        document.getElementById('leadership-list').innerHTML = `<p class="col-span-full text-center text-red-500">Failed to load leadership team.</p>`;
+        document.getElementById('event-list-placeholder').innerHTML = `Failed to load events.`;
+        document.getElementById('gallery-list').innerHTML = `<p class="col-span-full text-center text-red-500">Failed to load gallery.</p>`;
+        return false;
+    }
+}
+
+// --- INITIALIZATION ---
+document.addEventListener('DOMContentLoaded', async () => {
+    const success = await fetchData();
+    if (success) {
+        renderStatistics();
+        renderLeadership();
+        renderEvents();
+        renderGallery();
+        applyCommunityFilter(currentFilter); // Initial render for community
+    }
+    setupEventListeners();
+});
+
+// --- RENDER FUNCTIONS ---
+function renderStatistics() {
+    const container = document.getElementById('stats-list');
+    if (!statsData.length) return;
+    container.innerHTML = statsData.map(stat => `
+        <div class="bg-white p-6 card text-center">
+            ${stat.icon || ''}
+            <p class="text-4xl font-extrabold text-primary-blue">${stat.value}</p>
+            <p class="text-gray-600 font-semibold">${stat.label}</p>
+        </div>
+    `).join('');
+}
+
+function renderLeadership() {
+    const container = document.getElementById('leadership-list');
+    if (!leadershipData.length) return;
+    container.innerHTML = leadershipData.map(member => `
+        <div class="bg-white card text-center p-6">
+            <img class="w-24 h-24 rounded-full mx-auto mb-4 object-cover shadow-lg border-4 border-gold" src="${member.imgSrc}" alt="Photo of ${member.name}">
+            <h3 class="text-xl font-bold text-primary-blue">${member.name}</h3>
+            <p class="text-gold font-semibold mb-2">${member.position}</p>
+            <p class="text-sm text-gray-600">${member.major}</p>
+        </div>
+    `).join('');
+}
+
+function renderGallery() {
+    const container = document.getElementById('gallery-list');
+    if (!galleryData.length) return;
+    container.innerHTML = galleryData.map(item => `
+        <div class="bg-white card p-4">
+            <img class="rounded-lg w-full h-64 object-cover mb-4" src="${item.imgSrc}" alt="${item.description}">
+            <p class="text-center text-gray-600 text-sm">${item.description}</p>
+        </div>
+    `).join('');
+}
+
+
+function applyCommunityFilter(filter) {
+    currentFilter = filter;
+    
+    // The "All" filter should show current students (Undergrad, Postgrad) and the graduating class
+    if (filter === 'All') {
+        filteredCommunityData = communityData.filter(member => 
+            member.type === 'Undergraduate' || 
+            member.type === 'Postgraduate' || 
+            member.type === 'Graduate'
+        );
+    } else {
+        // For specific filters like "Graduate", "Undergraduate", etc.
+        filteredCommunityData = communityData.filter(member => member.type === filter);
+    }
+    renderCommunity(false); // Re-render with the new filter, showing the initial view
+}
+
+function renderCommunity(showAll = false) {
+    const container = document.getElementById('community-list');
+    const toggleContainer = document.getElementById('community-toggle-container');
+    container.innerHTML = '';
+
+    const dataToDisplay = showAll ? filteredCommunityData : filteredCommunityData.slice(0, MAX_DISPLAY_MEMBERS);
+    
+    if (dataToDisplay.length === 0) {
+        container.innerHTML = `<p class="col-span-full text-center text-gray-500">No members found for this category.</p>`;
+        toggleContainer.innerHTML = '';
+        return;
+    }
+
+    container.innerHTML = dataToDisplay.map(member => `
+        <div class="bg-white card p-6 cursor-pointer" onclick='openCommunityModal(${JSON.stringify(member)})'>
+            <div class="flex items-center space-x-4">
+                <img class="w-20 h-20 rounded-full object-cover border-4 border-gold-light" src="${member.imgSrc}" alt="Photo of ${member.name}">
+                <div>
+                    <h3 class="text-xl font-bold text-primary-blue">${member.name}</h3>
+                    <p class="text-gray-600">${member.major}</p>
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-primary-blue bg-gold-light last:mr-0 mr-1">
+                        ${member.type}
+                    </span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    toggleContainer.innerHTML = '';
+    if (filteredCommunityData.length > MAX_DISPLAY_MEMBERS) {
+        const buttonText = showAll ? 'Show Less' : `Show All ${filteredCommunityData.length} Members`;
+        toggleContainer.innerHTML = `<button onclick="renderCommunity(${!showAll})" class="bg-primary-blue text-white hover:bg-gold hover:text-primary-blue font-medium py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 shadow-md">${buttonText}</button>`;
+    }
+}
+
+function renderEvents() {
+    const container = document.getElementById('event-list-container');
+    const placeholder = document.getElementById('event-list-placeholder');
+    if (!eventsData.length) return;
+    
+    placeholder.style.display = 'none';
+    const now = new Date();
+    const sortedEvents = [...eventsData].sort((a, b) => new Date(a.date) - new Date(b.date));
+    
+    const upcomingEvents = sortedEvents.filter(e => new Date(e.date) > now);
+    const pastEvents = sortedEvents.filter(e => new Date(e.date) <= now).reverse();
+
+    const createEventCard = (event, isUpcoming) => {
+        const eventDate = new Date(event.date);
+        const dateString = eventDate.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const timeString = eventDate.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+
+        return `
+            <div class="bg-white card p-6 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 ${isUpcoming ? 'border-l-8 border-gold' : 'opacity-70'}">
+                <div class="flex-shrink-0 text-center">
+                    <div class="text-3xl font-extrabold text-primary-blue">${eventDate.toLocaleString('en-US', { month: 'short' }).toUpperCase()}</div>
+                    <div class="text-5xl font-extrabold text-gold">${eventDate.getDate()}</div>
+                    <div class="text-lg font-bold text-primary-blue">${eventDate.getFullYear()}</div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary-blue">${event.title}</h3>
+                    <p class="text-gray-600 font-semibold mb-2">${timeString} at ${event.location}</p>
+                    <p class="text-gray-700 text-sm">${event.description}</p>
+                </div>
+            </div>`;
+    };
+
+    container.innerHTML = `
+        <div>
+            <h3 class="text-2xl font-bold text-center mb-6 text-primary-blue border-b-2 border-gold pb-2">Upcoming</h3>
+            <div class="space-y-6">
+                ${upcomingEvents.length > 0 ? upcomingEvents.map(e => createEventCard(e, true)).join('') : '<p class="text-center text-gray-500">No upcoming events scheduled. Check back soon!</p>'}
+            </div>
+        </div>
+        <div>
+            <h3 class="text-2xl font-bold text-center mb-6 text-primary-blue border-b-2 border-gold pb-2">Past Events</h3>
+            <div class="space-y-6">
+                ${pastEvents.length > 0 ? pastEvents.map(e => createEventCard(e, false)).join('') : '<p class="text-center text-gray-500">No past events to show.</p>'}
+            </div>
+        </div>`;
+
+    if (upcomingEvents.length > 0) {
+        setupCountdown(upcomingEvents[0]);
+    }
+}
+
+let countdownInterval;
+function setupCountdown(event) {
+    const banner = document.getElementById('next-event-countdown-banner');
+    const titleEl = document.getElementById('countdown-event-title');
+    const timerUi = document.getElementById('countdown-timer-ui');
+    
+    titleEl.textContent = event.title;
+    banner.classList.remove('hidden');
+    
+    const eventDate = new Date(event.date).getTime();
+
+    if (countdownInterval) clearInterval(countdownInterval);
+
+    countdownInterval = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        if (distance < 0) {
+            clearInterval(countdownInterval);
+            timerUi.innerHTML = '<p class="col-span-full text-2xl font-bold">This event is happening now!</p>';
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        timerUi.innerHTML = `
+            <div class="bg-white bg-opacity-20 p-3 rounded-lg"><span class="text-4xl font-bold">${days}</span><br>Days</div>
+            <div class="bg-white bg-opacity-20 p-3 rounded-lg"><span class="text-4xl font-bold">${hours}</span><br>Hours</div>
+            <div class="bg-white bg-opacity-20 p-3 rounded-lg sm:col-auto"><span class="text-4xl font-bold">${minutes}</span><br>Minutes</div>
+            <div class="bg-white bg-opacity-20 p-3 rounded-lg sm:col-auto"><span class="text-4xl font-bold">${seconds}</span><br>Seconds</div>
+        `;
+    }, 1000);
+}
+
+
+// --- MODAL AND UI HELPERS ---
+function openBankDetailsModal() {
+    document.getElementById('bank-details-modal').classList.remove('hidden');
+}
+function closeBankDetailsModal() {
+    document.getElementById('bank-details-modal').classList.add('hidden');
+}
+function openCommunityModal(member) {
+    document.getElementById('modal-name').textContent = member.name;
+    document.getElementById('modal-type').textContent = member.type;
+    document.getElementById('modal-major').textContent = member.major || member.position;
+    document.getElementById('modal-story').textContent = member.story;
+    document.getElementById('community-detail-modal').classList.remove('hidden');
+}
+function copyToClipboard(elementId, button) {
+    const accountNumber = document.getElementById(elementId).innerText;
+    const textArea = document.createElement("textarea");
+    textArea.value = accountNumber;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+        document.execCommand('copy');
+        button.textContent = 'Copied!';
+        setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+    } catch (err) {
+        console.error('Failed to copy text: ', err);
+    }
+    document.body.removeChild(textArea);
+}
+
+function handleCommunityFilter(event, filter) {
+    event.preventDefault();
+    document.getElementById('community-filter').value = filter;
+    applyCommunityFilter(filter);
+    // Smooth scroll to the community section
+    document.getElementById('community').scrollIntoView({ behavior: 'smooth' });
+    // Close dropdowns if open
+    closeAllDropdowns();
+}
+
+function closeAllDropdowns() {
+    const menu = document.getElementById('community-menu');
+    const icon = document.getElementById('dropdown-icon');
+    menu.classList.add('dropdown-hidden');
+    menu.classList.remove('dropdown-visible');
+    icon.style.transform = 'rotate(0deg)';
+
+    if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+        toggleMobileMenu();
+    }
+}
+
+function toggleCommunityDropdown() {
+    const menu = document.getElementById('community-menu');
+    const icon = document.getElementById('dropdown-icon');
+    const isHidden = menu.classList.contains('dropdown-hidden');
+    if (isHidden) {
+        menu.classList.remove('dropdown-hidden');
+        menu.classList.add('dropdown-visible');
+        icon.style.transform = 'rotate(180deg)';
+    } else {
+        menu.classList.add('dropdown-hidden');
+        menu.classList.remove('dropdown-visible');
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
+
+
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-icon-open');
+    const closeIcon = document.getElementById('menu-icon-close');
+    mobileMenu.classList.toggle('hidden');
+    openIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+}
+
+// --- EVENT LISTENERS ---
+function setupEventListeners() {
+    // Desktop dropdown hide on mouseleave
+    const dropdown = document.getElementById('community-dropdown');
+    dropdown.addEventListener('mouseleave', () => {
+        const menu = document.getElementById('community-menu');
+        const icon = document.getElementById('dropdown-icon');
+        menu.classList.add('dropdown-hidden');
+        menu.classList.remove('dropdown-visible');
+        icon.style.transform = 'rotate(0deg)';
+    });
+
+
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+    
+    // Mobile dropdown toggle
+    const mobileCommunityBtn = document.getElementById('mobile-community-btn');
+    const mobileCommunityMenu = document.getElementById('mobile-community-menu');
+    const mobileDropdownIcon = document.getElementById('mobile-dropdown-icon');
+    mobileCommunityBtn.addEventListener('click', () => {
+        mobileCommunityMenu.classList.toggle('hidden');
+        mobileDropdownIcon.classList.toggle('rotate-180');
+    });
+
+    // Close mobile menu when a link is clicked
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                // We don't toggle if it's a dropdown item, as handleCommunityFilter does that
+                if (!link.parentElement.id === 'mobile-community-menu') {
+                    toggleMobileMenu();
+                }
+            }
+        });
+    });
+
+    // Community filter dropdown
+    document.getElementById('community-filter').addEventListener('change', (e) => applyCommunityFilter(e.target.value));
+}
+</script>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Annual Cultural Day",
+        "date": "future:25",
+        "time": "2:00 PM EAT",
+        "location": "University Main Hall",
+        "description": "A vibrant celebration of South Sudanese culture with traditional music, dance, and food."
+    },
+    {
+        "title": "General Assembly Meeting",
+        "date": "future:10",
+        "time": "4:00 PM EAT",
+        "location": "Student Union Office",
+        "description": "Discussing the quarterly report and planning for upcoming activities."
+    },
+    {
+        "title": "Alumni Mentorship Webinar",
+        "date": "future:40",
+        "time": "7:00 PM EAT",
+        "location": "Online via Zoom",
+        "description": "Connect with our successful alumni and gain insights into career development."
+    },
+    {
+        "title": "Freshmen Welcome Party",
+        "date": "past:30",
+        "time": "3:00 PM EAT",
+        "location": "Campus Green Field",
+        "description": "Welcomed our new students to the Jimma University family."
+    }
+]
