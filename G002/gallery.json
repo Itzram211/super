@@ -1,0 +1,26 @@
+[
+    {
+        "imgSrc": "images/444d.jpg",
+        "description": "Vibrant performances during our Annual Cultural Day."
+    },
+    {
+        "imgSrc": "images/img01.jpg",
+        "description": "Celebrating the class of 2024 graduates."
+    },
+    {
+        "imgSrc": "images/img02.jpg",
+        "description": "Friendly competition at the annual community sports day."
+    },
+    {
+        "imgSrc": "images/img03.jpg",
+        "description": "Welcoming new students to the SSS U-JU family."
+    },
+    {
+        "imgSrc": "https://placehold.co/600x400/0A3D62/FFFFFF?text=Community+Meeting",
+        "description": "A general assembly discussing union matters."
+    },
+    {
+        "imgSrc": "https://placehold.co/600x400/FBC531/000000?text=Academic+Forum",
+        "description": "Students engaged in an academic forum."
+    }
+]
