@@ -208,7 +208,197 @@
         "type": "Undergraduate",
         "major": "Civil Engineering, 1st Year",
         "graduationYear": "2030",
-        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=DM"
+         {
+        "id": 27,
+        "name": "NYAWIIR ATEK",
+        "type": "Undergraduate",
+        "major": "Natural R. Management, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 28,
+        "name": "MAMI JOHN",
+        "type": "Undergraduate",
+        "major": "Natural R. Management, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 29,
+        "name": "JUDITH",
+        "type": "Undergraduate",
+        "major": "Natural R. Management, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 30,
+        "name": "GOL",
+        "type": "Alumni",
+        "major": "Civil Engineering, 4th Year",
+        "graduationYear": "2027",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 31,
+        "name": "ALIAP ANGELO",
+        "type": "Undergraduate",
+        "major": "Agric-Business, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 32,
+        "name": "AWEL DENG",
+        "type": "Undergraduate",
+        "major": "Agric-Business, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 33,
+        "name": "DIING CHOL",
+        "type": "Undergraduate",
+        "major": "Agric-Business, 4th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 34,
+        "name": "DENG KUOL",
+        "type": "Undergraduate",
+        "major": "ANASTIST, 5th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 35,
+        "name": "BAKINDO",
+        "type": "Undergraduate",
+        "major": "Agriculture, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 36,
+        "name": "CHOL PUORACH",
+        "type": "Undergraduate",
+        "major": "Software Engineering, 3rd Year",
+        "graduationYear": "2028",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 37,
+        "name": "CHRISTIN",
+        "type": "Undergraduate",
+        "major": "ANASTIST, 2nd Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 38,
+        "name": "Dr. NYOK",
+        "type": "Undergraduate",
+        "major": "Medicince, 6th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 39,
+        "name": "DUT GARANG",
+        "type": "Undergraduate",
+        "major": "Natural R. Management, 4th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 40,
+        "name": "JACKSON",
+        "type": "Undergraduate",
+        "major": "Agriculture, 1st Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 41,
+        "name": "KIIR",
+        "type": "Undergraduate",
+        "major": "Social science, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 41,
+        "name": "Dr. MALISH",
+        "type": "Undergraduate",
+        "major": "Medicince, 3rd Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 42,
+        "name": "Dr. MAWUT DOK",
+        "type": "Undergraduate",
+        "major": "Medicince, 3rd Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 43,
+        "name": "Dr. MANYANG",
+        "type": "Undergraduate",
+        "major": "Medicince, 5th Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 44,
+        "name": "Eng. SIJIN JANY",
+        "type": "Undergraduate",
+        "major": "Electrical Engineering, 5th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 45,
+        "name": "Dr. TESCO",
+        "type": "Undergraduate",
+        "major": "Medicince, 3rd Year",
+        "graduationYear": "2030",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 46,
+        "name": "Eng. Nyok ADHALAH",
+        "type": "Undergraduate",
+        "major": "Chemical Engineering, 5th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 47,
+        "name": "AKOCH KIIR",
+        "type": "Undergraduate",
+        "major": "Social science, 1st Year",
+        "graduationYear": "2029",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 48,
+        "name": "Dr. CHOL KELEI",
+        "type": "Undergraduate",
+        "major": "Medicince, 6th Year",
+        "graduationYear": "2026",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
+    },
+    {
+        "id": 49,
+        "name": "MAJOK DENG",
+        "type": "Undergraduate",
+        "major": "Civil Engineering, 3rd Year",
+        "graduationYear": "2027",
+        "imgSrc": "https://placehold.co/400x400/F0F5F9/0A3D62?text=PB"
     }
     
-]
+
